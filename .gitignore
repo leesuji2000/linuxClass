@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # Prerequisites
 >>>>>>> a7878080b6c2d7dfedba3de7f18cf4dbea0bd2e8
+=======
+
+>>>>>>> 808b92a75f36636d5bc7578c8e1e7b8b5df7c54d
 *.d
 
 # Object files
@@ -54,6 +58,9 @@ Module.symvers
 Mkfile.old
 dkms.conf
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> a7878080b6c2d7dfedba3de7f18cf4dbea0bd2e8
+=======
+>>>>>>> 808b92a75f36636d5bc7578c8e1e7b8b5df7c54d
