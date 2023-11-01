@@ -270,6 +270,7 @@ __used __section(__versions) = {
 	{ 0xd9fd8f70, "bio_add_page" },
 	{ 0x7e2716fd, "generic_writepages" },
 	{ 0x8dac994d, "kobject_init_and_add" },
+	{ 0x1edb69d6, "ktime_get_raw_ts64" },
 	{ 0xf1e046cc, "panic" },
 	{ 0x58c2bb90, "__fscrypt_prepare_link" },
 	{ 0x7d4b9205, "file_remove_privs" },
@@ -597,4 +598,4 @@ __used __section(__versions) = {
 MODULE_INFO(depends, "jbd3");
 
 
-MODULE_INFO(srcversion, "2BDAF78A1F04355640B34F6");
+MODULE_INFO(srcversion, "1B34E1CB510BFCAF0269CDD");
