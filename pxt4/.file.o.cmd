@@ -1034,6 +1034,8 @@ deps_/usr/src/lee/linuxClass/pxt4/file.o := \
   include/linux/posix_acl.h \
   include/uapi/linux/posix_acl.h \
   /usr/src/lee/linuxClass/pxt4/calclock.h \
+    $(wildcard include/config/calclock.h) \
+  /usr/src/lee/linuxClass/pxt4/ds_monitoring.h \
 
 /usr/src/lee/linuxClass/pxt4/file.o: $(deps_/usr/src/lee/linuxClass/pxt4/file.o)
 

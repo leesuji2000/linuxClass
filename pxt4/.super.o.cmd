@@ -1177,6 +1177,8 @@ deps_/usr/src/lee/linuxClass/pxt4/super.o := \
     $(wildcard include/config/proc/pid/arch/status.h) \
   /usr/src/lee/linuxClass/pxt4/fsmap.h \
   /usr/src/lee/linuxClass/pxt4/calclock.h \
+    $(wildcard include/config/calclock.h) \
+  /usr/src/lee/linuxClass/pxt4/ds_monitoring.h \
   include/trace/events/pxt4.h \
   include/linux/tracepoint.h \
     $(wildcard include/config/have/syscall/tracepoints.h) \

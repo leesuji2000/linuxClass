@@ -34,6 +34,7 @@
 #include "xattr.h"
 #include "acl.h"
 #include "calclock.h"
+#include "ds_monitoring.h"
 
 #ifdef CONFIG_FS_DAX
 
@@ -289,17 +290,56 @@ out:
 	return ret;
 }
 
-unsigned long long file_write_iter_time, file_write_iter_count;
-static ssize_t pxt4_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
-{
+KTDEF(pxt4_file_write_iter);
+static ssize_t pxt4_file_write_iter(struct kiocb *iocb, struct iov_iter *from){
 ssize_t ret;
-struct timespec myclock[2];
-getrawmonotonic(&myclock[0]);
-ret = pxt4_file_write_iter_internal(iocb, from);
-getrawmonotonic(&myclock[1]);
-calclock(myclock, &file_write_iter_time, &file_write_iter_count);
+ktime_t localclock[2];
+ktget(&localclock[0]);
+ret = pxt4_file_write_iter_internal(iocb,from);
+ktget(&localclock[1]);
+ktput(localclock, pxt4_file_write_iter);
 return ret;
 }
+
+static unsigned long get_thread_idx(void *elem)
+{
+int node_idx;
+unsigned long xa_index;
+int zone_idx;
+struct task_struct *current_task = (struct task_struct *) elem;
+return (unsigned long) current_task->cpu;
+}
+static const char * get_thread_name(void *elem)
+{
+struct task_struct *current_task = (struct task_struct *) elem;
+return current_task->comm;
+}
+static void print_zone_dm(unsigned long pid,
+const char *name,
+unsigned long long count,
+int percentage)
+{
+printk("cpu[%ld] called wb_check_background_flush() \
+%lld times (%d%%)\n"
+, pid, count, percentage);
+}
+#define current get_current()
+// DEFINE_DS_MONITORING(thread_dm, get_thread_idx, get_thread_name, print_zone_dm);
+
+
+//unsigned long long file_write_iter_time, file_write_iter_count;
+///static ssize_t pxt4_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+//{
+//ssize_t ret;
+//struct timespec myclock[2];
+//getrawmonotonic(&myclock[0]);
+//ret = pxt4_file_write_iter_internal(iocb, from);
+//find_ds_monitoring(&thread_dm, current);
+//getrawmonotonic(&myclock[1]);
+//calclock(myclock, &file_write_iter_time, &file_write_iter_count);
+//printk("cpu[%d] called pxt_file_write_iter()\n", current->cpu);
+//return ret;
+//}
 
 #ifdef CONFIG_FS_DAX
 static vm_fault_t pxt4_dax_huge_fault(struct vm_fault *vmf,

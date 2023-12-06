@@ -1,4 +1,4 @@
-cscope 15 /usr/src/lee/linuxClass/jbd3               0000184389
+cscope 15 /usr/src/lee/linuxClass/pxt4/jbd3               0000185087
 	@checkpoint.c
 
 17 
@@ -6690,6 +6690,126 @@ j_hi°‹y_lock
 1154 
 	}
 }
+
+	@jbd3.mod.c
+
+1 
+	~<löux/buûd-ß….h
+>
+
+2 
+	~<löux/moduÀ.h
+>
+
+3 
+	~<löux/vîmagic.h
+>
+
+4 
+	~<löux/compûî.h
+>
+
+6 
+	gBUILD_SALT
+;
+
+8 
+MODULE_INFO
+(
+vîmagic
+, 
+VERMAGIC_STRING
+);
+
+9 
+MODULE_INFO
+(
+«me
+, 
+KBUILD_MODNAME
+);
+
+11 
+__visibÀ
+ 
+moduÀ
+ 
+__this_moduÀ
+
+
+12 
+__£˘i⁄
+(.
+gnu
+.
+lök⁄˚
+.
+this_moduÀ
+) = {
+
+13 .
+«me
+ = 
+KBUILD_MODNAME
+,
+
+14 .
+	göô
+ = 
+öô_moduÀ
+,
+
+15 #ifde‡
+CONFIG_MODULE_UNLOAD
+
+
+16 .
+	gexô
+ = 
+˛ónup_moduÀ
+,
+
+18 .
+	g¨ch
+ = 
+MODULE_ARCH_INIT
+,
+
+21 #ifde‡
+CONFIG_RETPOLINE
+
+
+22 
+MODULE_INFO
+(
+ªçﬁöe
+, "Y");
+
+25 c⁄° 
+modvîsi⁄_öfo
+ 
+	g____vîsi⁄s
+[]
+
+26 
+__u£d
+ 
+__£˘i⁄
+(
+__vîsi⁄s
+) = {
+
+164 
+MODULE_INFO
+(
+dïíds
+, "");
+
+167 
+MODULE_INFO
+(
+§cvîsi⁄
+, "0B1DB54BAB568508874327F");
 
 	@journal.c
 
@@ -32958,10 +33078,11 @@ __ölöe__
 .
 1
 /usr/include
-18
-402
+19
+413
 checkpoint.c
 commit.c
+jbd3.mod.c
 journal.c
 recovery.c
 revoke.c
